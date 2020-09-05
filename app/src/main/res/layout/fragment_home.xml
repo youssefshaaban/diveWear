@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.home.HomeFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/root"
+        android:layout_height="@dimen/_130sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="@dimen/_100sdp"
+            android:id="@+id/rootToolBar"
+            android:background="@drawable/back_bottom_raduis"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_home"
+                android:textColor="@color/white"
+                android:layout_alignParentStart="true"
+                android:textSize="@dimen/txt20"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/neo_sans_medium"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/notification_bell"
+                android:layout_alignParentEnd="true"
+                android:textSize="@dimen/txt20"
+                android:id="@+id/notification"
+                android:layout_marginEnd="@dimen/_20sdp"
+
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/neo_sans_medium"
+                />
+        </RelativeLayout>
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_solid_gray"
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="@id/rootToolBar"
+            android:layout_marginTop="@dimen/_80sdp"
+            >
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/neo_sans_medium"
+                android:layout_gravity="center"
+                android:gravity="center|start"
+                android:textSize="@dimen/txt12"
+                android:background="@null"
+                android:textColor="@color/dark_grey"
+                android:textColorHint="@color/dark_grey"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:hint="@string/search" />
+
+            <ImageView
+                android:id="@+id/search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/magnifying_glass" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/root"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/contentSlider"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp">
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:id="@+id/pager"
+                        />
+                </LinearLayout>
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout_dots"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:translationZ="@dimen/_5sdp"
+                    app:tabBackground="@drawable/tab_selector"
+                    app:tabGravity="center"
+                    app:tabIndicatorHeight="0dp" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="@dimen/txt20"
+                android:fontFamily="@font/neo_sans_medium"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/title_categories"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recycleCategories"
+                android:layout_margin="@dimen/_5sdp"
+                />
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

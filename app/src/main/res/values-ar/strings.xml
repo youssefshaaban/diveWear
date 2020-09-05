@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Diva wear</string>
+    <string name="title_cart">السلة</string>
+    <string name="title_orders">الطلبات</string>
+    <string name="title_home">الرئيسية</string>
+    <string name="title_favourite">المفضلة</string>
+    <string name="title_settings">الإعدادات</string>
+    <string name="loading">تحميل</string>
+    <string name="search">ابحث عما تريد</string>
+    <string name="title_categories">"الاقسام "</string>
+</resources>
