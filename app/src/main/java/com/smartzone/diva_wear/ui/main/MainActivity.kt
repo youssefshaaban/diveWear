@@ -1,5 +1,7 @@
 package com.smartzone.diva_wear.ui.main
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +32,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 //            R.id.navigation_notifications
 //        ))
         //setupActionBarWithNavController(navController, appBarConfiguration)
+        val cart=intent.extras?.getBoolean("cart")
+        cart?.let {
+            navController.navigate(R.id.cart)
+        }
         binding.navView.setupWithNavController(navController)
         binding.addActivity.setOnClickListener {
             navController.navigate(R.id.home)
@@ -44,5 +50,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun getViewModel(): BaseViewModel? {
         return null
+    }
+
+    companion object{
+        fun getIntent(context: Context):Intent=Intent(context,MainActivity::class.java)
     }
 }

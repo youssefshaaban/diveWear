@@ -15,14 +15,14 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_90sdp"
+                android:layout_height="@dimen/_100sdp"
                 android:background="@color/grey">
 
                 <ImageView
                     android:id="@+id/imageProduct"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="fitXY"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/default_image" />
 
                 <ImageView
@@ -71,6 +71,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/plus"
                         android:src="@drawable/plus_1" />
 
                     <TextView
@@ -79,11 +80,13 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="@dimen/_10sdp"
                         android:paddingEnd="@dimen/_10sdp"
+                        android:textColor="@color/colorPrimary"
                         android:text="0" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/minus"
                         android:src="@drawable/min_1" />
                 </LinearLayout>
             </LinearLayout>

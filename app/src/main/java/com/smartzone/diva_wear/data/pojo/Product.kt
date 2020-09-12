@@ -5,7 +5,7 @@ data class Product(
     val created: String?=null,
     val description: String?=null,
     val description_ar: String?=null,
-    val favourite: Boolean,
+    var favourite: Boolean,
     val homepage: String,
     val id: String,
     val image: String?=null,
@@ -14,5 +14,12 @@ data class Product(
     val name_ar: String,
     val price: String,
     val sale: String,
-    val status: String
-)
+    val status: String,
+    var quantity:Int=0,
+    var isAddCart:Boolean=false
+){
+    override fun equals(other: Any?): Boolean {
+        if (other is Product && other.id == this.id) return true
+        return false
+    }
+}

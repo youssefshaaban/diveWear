@@ -6,4 +6,5 @@ const val BASE_URL="https://diva-wear.com/"   // for tester
 const val prefFileName = "com.smartzone.edura"
 
 const val ID_KEY="id"
+const val CATEGORY_ID="category_id"
 const val CATEGORY_NAME="category_name"

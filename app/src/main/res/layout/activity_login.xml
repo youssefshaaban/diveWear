@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:paddingBottom="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_304sdp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/txtWelcome"
+            android:fontFamily="@font/neo_sans_medium"
+            android:textSize="@dimen/txt18"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/title_welcome"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+
+            android:id="@+id/txtPlease"
+            android:fontFamily="@font/neo_sans_medium"
+            android:textSize="@dimen/txt18"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/txtWelcome"
+            android:text="@string/title_please"
+            />
+
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/logo"
+            android:fontFamily="@font/neo_sans_medium"
+            android:textSize="@dimen/txt18"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/logo"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/txtPlease"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/tittle_phone"
+            android:fontFamily="@font/neo_sans_medium"
+            android:textSize="@dimen/txt18"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/title_phone"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/logo"
+            />
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/etPhone"
+            android:fontFamily="@font/neo_sans_medium"
+            android:textSize="@dimen/txt14"
+            android:padding="@dimen/_12sdp"
+            android:inputType="phone"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="@string/title_enter_phone"
+            android:singleLine="true"
+            android:background="@drawable/back_login_et"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tittle_phone"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/tittle_password"
+            android:fontFamily="@font/neo_sans_medium"
+            android:textSize="@dimen/txt18"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/title_passowrd"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/etPhone"
+            />
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/etPassword"
+            android:fontFamily="@font/neo_sans_medium"
+            android:textSize="@dimen/txt14"
+            android:padding="@dimen/_12sdp"
+            android:singleLine="true"
+            android:inputType="textPassword"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="@string/title_enter_password"
+            android:background="@drawable/back_login_et"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tittle_password"
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/btnLogin"
+            android:fontFamily="@font/neo_sans_medium"
+            android:textSize="@dimen/txt14"
+            android:padding="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:text="@string/title_login"
+            android:textColor="@color/white"
+            android:background="@drawable/back_color_primary_et"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPassword"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/btnVisitor"
+            android:fontFamily="@font/neo_sans_medium"
+            android:textSize="@dimen/txt14"
+            android:padding="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/title_visitor"
+            android:textColor="@color/white"
+            android:background="@drawable/back_color_acccent_et"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnLogin"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/tittle_forget_password"
+            android:fontFamily="@font/neo_sans_medium"
+            android:textSize="@dimen/txt13"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/title_forget_passowrd"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/btnVisitor"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/tittle_have_account"
+            android:fontFamily="@font/neo_sans_medium"
+            android:textSize="@dimen/txt13"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/title_no_have_account"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/tittle_forget_password"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tittle_have_account"
+            android:id="@+id/tittle_press"
+            android:fontFamily="@font/neo_sans_medium"
+            android:textSize="@dimen/txt13"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/title_press"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="@dimen/_10sdp"
+
+            app:layout_constraintTop_toBottomOf="@id/tittle_forget_password"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+</layout>

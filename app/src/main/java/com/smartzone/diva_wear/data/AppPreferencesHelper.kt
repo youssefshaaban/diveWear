@@ -16,4 +16,12 @@ class AppPreferencesHelper(val context: Context) {
         val editor = prefs.edit()
         editor.putString("lang",lang).apply()
     }
+
+    fun isLogin():Boolean{
+        return prefs.getBoolean("isLogin",false)
+    }
+    fun setLogin(value: Boolean){
+        val editor = prefs.edit()
+        editor.putBoolean("isLogin",value).apply()
+    }
 }

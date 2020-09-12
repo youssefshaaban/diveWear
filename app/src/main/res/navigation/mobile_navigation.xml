@@ -40,4 +40,10 @@
         android:name="com.smartzone.diva_wear.ui.main.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/settings_fragment" />
+
+    <action android:id="@+id/cart"
+        app:destination="@id/navigation_cart"
+        app:popUpToInclusive="true"
+        app:popUpTo="@id/navigation_cart"
+        />
 </navigation>

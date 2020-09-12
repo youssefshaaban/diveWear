@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg"
+        android:layout_height="match_parent"
+        tools:context=".ui.login.LoginActivity">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_304sdp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/txtWelcome"
+                android:fontFamily="@font/neo_sans_medium"
+                android:textSize="@dimen/txt18"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="@string/title_welcome"
+                />
+
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/logo"
+                android:fontFamily="@font/neo_sans_medium"
+                android:textSize="@dimen/txt18"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/logo"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@id/txtWelcome"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/tittle_user_name"
+                android:fontFamily="@font/neo_sans_medium"
+                android:textSize="@dimen/txt18"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/title_user_name"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@id/logo"
+                />
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/etName"
+                android:fontFamily="@font/neo_sans_medium"
+                android:textSize="@dimen/txt14"
+                android:padding="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:hint="@string/title_enteer_user_name"
+                android:singleLine="true"
+                android:background="@drawable/back_login_et"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tittle_user_name"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/tittle_phone"
+                android:fontFamily="@font/neo_sans_medium"
+                android:textSize="@dimen/txt18"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/title_phone"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@id/etName"
+                />
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/et_phone"
+                android:fontFamily="@font/neo_sans_medium"
+                android:textSize="@dimen/txt14"
+                android:padding="@dimen/_12sdp"
+                android:singleLine="true"
+                android:inputType="phone"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:hint="@string/title_enter_phone"
+                android:background="@drawable/back_login_et"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tittle_phone"
+                tools:ignore="TextFields" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/tittle_city"
+                android:fontFamily="@font/neo_sans_medium"
+                android:textSize="@dimen/txt18"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/title_city"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@id/et_phone"
+                />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/back_login_et"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_5sdp"
+                android:orientation="horizontal"
+                android:id="@+id/contentCity"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/tittle_city"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/et_city"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/neo_sans_medium"
+                    android:textSize="@dimen/txt14"
+                    android:singleLine="true"
+                    android:focusable="true"
+                    android:padding="@dimen/_10sdp"
+
+                    android:hint="@string/title_enter_city"
+                    android:background="@drawable/back_login_et"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tittle_city"
+                    tools:ignore="TextFields" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/arrowdown"
+                    android:gravity="center"
+
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/tittle_password"
+                android:fontFamily="@font/neo_sans_medium"
+                android:textSize="@dimen/txt18"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/title_passowrd"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@id/contentCity"
+                />
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/et_password"
+                android:fontFamily="@font/neo_sans_medium"
+                android:textSize="@dimen/txt14"
+                android:padding="@dimen/_12sdp"
+                android:singleLine="true"
+                android:focusable="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:hint="@string/title_enter_password"
+                android:background="@drawable/back_login_et"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tittle_password"
+                tools:ignore="TextFields" />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/btnSignUp"
+                android:fontFamily="@font/neo_sans_medium"
+                android:textSize="@dimen/txt14"
+                android:padding="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:text="@string/title_create_account"
+                android:textColor="@color/white"
+                android:background="@drawable/back_color_primary_et"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_password"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/tittle_have_account"
+                android:fontFamily="@font/neo_sans_medium"
+                android:textSize="@dimen/txt13"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/title_have_account"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@id/btnSignUp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/tittle_have_account"
+                android:id="@+id/tittle_press"
+                android:fontFamily="@font/neo_sans_medium"
+                android:textSize="@dimen/txt13"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/title_press"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@id/btnSignUp"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>
