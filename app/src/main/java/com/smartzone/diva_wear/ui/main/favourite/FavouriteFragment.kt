@@ -1,32 +1,109 @@
 package com.smartzone.diva_wear.ui.main.favourite
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.text.TextUtils
 import android.view.View
-import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
+import com.smartzone.diva_wear.MyApp
 import com.smartzone.diva_wear.R
+import com.smartzone.diva_wear.data.pojo.User
+import com.smartzone.diva_wear.databinding.FavouriteFragmentBinding
+import com.smartzone.diva_wear.ui.base.BaseFragment
+import com.smartzone.diva_wear.ui.base.BaseViewModel
+import com.smartzone.diva_wear.ui.main.MainActivity
+import com.smartzone.diva_wear.ui.products.product_details.ProductDetailsActivity
+import com.smartzone.diva_wear.ui.products.ProductsAdapter
+import com.smartzone.diva_wear.utilis.CATEGORY_ID
+import com.smartzone.diva_wear.utilis.ID_KEY
+import com.smartzone.diva_wear.utilis.SavePrefs
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FavouriteFragment : Fragment() {
+class FavouriteFragment : BaseFragment<FavouriteFragmentBinding>() {
 
     companion object {
         fun newInstance() = FavouriteFragment()
     }
+    lateinit var binding: FavouriteFragmentBinding
+    val viewModel: FavouriteViewModel by viewModel()
 
-    private lateinit var viewModel: FavouriteViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding=getViewDataBinding()
+        binding.recycle.layoutManager=GridLayoutManager(activity,2)
+        observeListProducts()
+        observeNotify()
+        refresh()
+        binding.notification.setOnClickListener {
+            (activity as MainActivity).openNotification()
+        }
+        binding.etSearch.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                refresh()
+                hideKeyboard()
+                return@setOnEditorActionListener true
+            }
+            false
+        }
+        binding.search.setOnClickListener {
+            refresh()
+            hideKeyboard()
+        }
+    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.favourite_fragment, container, false)
+
+
+    fun observeListProducts() {
+        viewModel.lisProducts.observe(viewLifecycleOwner, Observer {
+            binding.recycle.adapter = ProductsAdapter(it, {
+                    product->
+                val cart = MyApp.getCart()
+                cart.save()
+                activity?.let {
+                    startActivityForResult(
+                        ProductDetailsActivity.getIntent(it)
+                            .apply {
+                                putExtra(CATEGORY_ID,product.category_id)
+                                putExtra(ID_KEY,product.id)
+                            }
+                        ,1)
+                }
+            }, { idProduct: String, position: Int ->
+                viewModel.addFavourite(idProduct, position)
+            })
+        })
+    }
+    fun observeNotify() {
+        viewModel.noitfyPosition.observe(this, Observer {
+            val list=viewModel.lisProducts.value!!.toMutableList()
+            list.removeAt(it)
+            viewModel.lisProducts.value=list
+            binding.recycle.adapter?.notifyDataSetChanged()
+        })
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(FavouriteViewModel::class.java)
-        // TODO: Use the ViewModel
+
     }
+
+    override fun getLayoutId(): Int {
+        return R.layout.favourite_fragment
+    }
+
+    override fun getViewModel(): BaseViewModel? {
+        return viewModel
+    }
+
+    fun refresh() {
+        val user= SavePrefs(MyApp.getApp(), User::class.java).load()
+
+        if (TextUtils.isEmpty(binding.etSearch.text.toString()))
+            viewModel.getFavourite(user!!.id)
+        else
+            viewModel.getFavourite(user!!.id,binding.etSearch.text.toString())
+    }
+
 
 }

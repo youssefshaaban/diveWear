@@ -33,7 +33,7 @@ class AddCartDialog (context: Context) : AlertDialog(context){
         display.getSize(size)
         window.attributes.windowAnimations = R.style.PopupAnimation
         window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        val width = (context.resources.displayMetrics.widthPixels * .85).toInt()
+        val width = (context.resources.displayMetrics.widthPixels * .95).toInt()
         getWindow()!!.setLayout(width, WindowManager.LayoutParams.WRAP_CONTENT)
         window.setGravity(Gravity.CENTER)
         val wlp = window.attributes

@@ -12,7 +12,9 @@ import com.smartzone.diva_wear.data.pojo.Slider
 import com.smartzone.diva_wear.databinding.FragmentHomeBinding
 import com.smartzone.diva_wear.ui.base.BaseFragment
 import com.smartzone.diva_wear.ui.base.BaseViewModel
+import com.smartzone.diva_wear.ui.main.MainActivity
 import com.smartzone.diva_wear.ui.products.ProductsActivity
+import com.smartzone.diva_wear.ui.products.product_details.ProductDetailsActivity
 import com.smartzone.diva_wear.utilis.CATEGORY_NAME
 import com.smartzone.diva_wear.utilis.ID_KEY
 import com.smartzone.diva_wear.utilis.ViewUtils
@@ -33,8 +35,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         //binding.pager.setPageTransformer(false,transformer)
         binding.recycleCategories.layoutManager=GridLayoutManager(activity,2)
         viewModel.loadData()
-        binding.contentSlider.visibility=View.INVISIBLE
-        //viewModel.getSlider()
+
+        binding.notification.setOnClickListener {
+            (activity as MainActivity).openNotification()
+        }
+        viewModel.getSlider()
     }
     override fun getLayoutId(): Int {
         return R.layout.fragment_home
@@ -49,7 +54,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             sliders->
             activity?.let {
                 binding.pager.adapter=SlidderAdapter(sliders as ArrayList<Slider>){
-
+                    slider->
+                  if (slider.type=="1"){  // open product detail
+                      activity?.let {
+                          startActivity(ProductDetailsActivity.getIntent(it).apply {
+                              putExtra(ID_KEY,slider.target)
+                          })
+                      }
+                  }else if (slider.type=="2"){  // open products for category
+                      activity?.let {
+                          startActivity(ProductsActivity.getIntent(it).apply {
+                              putExtra(ID_KEY,slider.target)
+                          })
+                      }
+                  }
                 }
                 TabLayoutMediator(binding.tabLayoutDots, binding.pager) { tab, position ->
 //            tab.text = "OBJECT ${(position + 1)}"

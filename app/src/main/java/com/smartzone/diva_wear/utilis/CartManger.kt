@@ -44,13 +44,13 @@ class CartManger() {
     }
 
     fun removeProduct(product: Product): Int {
-        var count = 0
+        var count = 1
         val index = orderBean.listProduct.indexOf(product)
         if (orderBean.listProduct.contains(product)) {
             val pro = orderBean.listProduct[index]
             if (pro.quantity - 1 == 0) {
                 if (!pro.isAddCart){
-                    count = 0
+                    count = 1
                     orderBean.listProduct.removeAt(index)
                 }else{
                     count=1
@@ -65,6 +65,7 @@ class CartManger() {
 
     fun clearOrder() {
         orderBean.listProduct.clear()
+        orderBean.delviry=null
         save()
     }
 
@@ -99,5 +100,8 @@ class CartManger() {
                 count++
         }
         return count
+    }
+    fun IsEmpty():Boolean{
+        return getCartList().isEmpty()
     }
 }

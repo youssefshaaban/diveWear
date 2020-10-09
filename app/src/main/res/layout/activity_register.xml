@@ -32,7 +32,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_height="@dimen/_70sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:id="@+id/logo"
                 android:fontFamily="@font/neo_sans_medium"
@@ -86,7 +86,7 @@
                 android:textSize="@dimen/txt18"
                 android:padding="@dimen/_5sdp"
                 android:text="@string/title_phone"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_10sdp"
                 app:layout_constraintTop_toBottomOf="@id/etName"
                 />
@@ -121,7 +121,7 @@
                 android:textSize="@dimen/txt18"
                 android:padding="@dimen/_5sdp"
                 android:text="@string/title_city"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_10sdp"
                 app:layout_constraintTop_toBottomOf="@id/et_phone"
                 />
@@ -139,7 +139,7 @@
                 android:gravity="center"
                 app:layout_constraintTop_toBottomOf="@id/tittle_city"
                 android:layout_height="wrap_content">
-                <androidx.appcompat.widget.AppCompatSpinner
+                <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
@@ -148,7 +148,7 @@
                     android:fontFamily="@font/neo_sans_medium"
                     android:textSize="@dimen/txt14"
                     android:singleLine="true"
-                    android:focusable="true"
+                    android:focusable="false"
                     android:padding="@dimen/_10sdp"
 
                     android:hint="@string/title_enter_city"
@@ -157,11 +157,11 @@
                     app:layout_constraintTop_toBottomOf="@id/tittle_city"
                     tools:ignore="TextFields" />
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="20dp"
                     android:src="@drawable/arrowdown"
                     android:gravity="center"
 
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="20dp"/>
 
             </LinearLayout>
 
@@ -176,7 +176,7 @@
                 android:textSize="@dimen/txt18"
                 android:padding="@dimen/_5sdp"
                 android:text="@string/title_passowrd"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_10sdp"
                 app:layout_constraintTop_toBottomOf="@id/contentCity"
                 />
@@ -192,13 +192,14 @@
                 android:textSize="@dimen/txt14"
                 android:padding="@dimen/_12sdp"
                 android:singleLine="true"
-                android:focusable="true"
+                android:inputType="textPassword"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:textAlignment="viewStart"
                 android:hint="@string/title_enter_password"
                 android:background="@drawable/back_login_et"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tittle_password"
-                tools:ignore="TextFields" />
+                 />
 
 
             <Button
@@ -209,7 +210,7 @@
                 android:fontFamily="@font/neo_sans_medium"
                 android:textSize="@dimen/txt14"
                 android:padding="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:text="@string/title_create_account"
                 android:textColor="@color/white"
                 android:background="@drawable/back_color_primary_et"

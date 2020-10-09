@@ -1,43 +1,53 @@
 package com.smartzone.diva_wear.ui.register
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.RecyclerView
+import com.smartzone.diva_wear.MyApp
 import com.smartzone.diva_wear.R
 import com.smartzone.diva_wear.data.pojo.City
+import com.smartzone.diva_wear.databinding.ItemProductBinding
+import com.smartzone.diva_wear.databinding.ItemSelectCityBinding
 
-open class CityAdapter(context: Context, val resource: Int, val list: List<City>) :
-    ArrayAdapter<City>(context, resource, list) {
-    var vi: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+class CityAdapter(
+    val cities: List<City>,
+    val click:(City)->Unit
+) :
+    RecyclerView.Adapter<CityAdapter.SingleRow>() {
+
+    override fun onCreateViewHolder(p0: ViewGroup, viewType: Int): CityAdapter.SingleRow {
+        return SingleRow(
+            DataBindingUtil.inflate(
+                LayoutInflater.from(p0.context),
+                R.layout.item_select_city, p0, false
+            )
+        )
 
 
-    override fun getItem(position: Int): City? {
-        return list.get(position)
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val city=list.get(position)
-        var holder: ViewHolder
-        var retView: View
-        if(convertView == null){
-            retView = vi.inflate(resource, null)
-            holder = ViewHolder()
+    override fun getItemCount(): Int {
+        return cities.size
+    }
 
-            holder.txt = retView.findViewById(android.R.id.text1) as TextView?
-            holder.txt?.setText(city.name)
-            retView.tag = holder
 
-        } else {
-            holder = convertView.tag as ViewHolder
-            retView = convertView
+    override fun onBindViewHolder(holder: CityAdapter.SingleRow, p1: Int) {
+        holder.bind(p1)
+    }
+
+
+    inner class SingleRow(var view: ItemSelectCityBinding) :
+        RecyclerView.ViewHolder(view.root) {
+
+        fun bind(pos: Int) {
+            val city = cities[pos]
+            view.txtName.text=city.name
+            view.root.setOnClickListener {
+                click(city)
+            }
         }
-        return retView
     }
 
-    internal class ViewHolder {
-        var txt: TextView? = null
-    }
+
 }

@@ -18,7 +18,7 @@ import com.smartzone.diva_wear.ui.register.RegisterActivity
 import com.smartzone.diva_wear.utilis.SavePrefs
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LoginActivity : BaseActivity<ActivityLoginBinding>() {
+    class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     val viewModel: LoginViewModel by viewModel()
     lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_orders"
-        android:name="com.smartzone.diva_wear.ui.main.orders.OrdersFragment"
+        android:name="com.smartzone.diva_wear.ui.main.orders.RequestsFragment"
         android:label="@string/title_orders"
         tools:layout="@layout/fragment_orders" />
 

@@ -7,7 +7,6 @@ import android.text.TextUtils
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,7 +16,7 @@ import com.smartzone.diva_wear.R
 import com.smartzone.diva_wear.databinding.ActivityProductsBinding
 import com.smartzone.diva_wear.ui.base.BaseActivity
 import com.smartzone.diva_wear.ui.base.BaseViewModel
-import com.smartzone.diva_wear.ui.product_details.ProductDetailsActivity
+import com.smartzone.diva_wear.ui.products.product_details.ProductDetailsActivity
 import com.smartzone.diva_wear.utilis.CATEGORY_ID
 import com.smartzone.diva_wear.utilis.CATEGORY_NAME
 import com.smartzone.diva_wear.utilis.ID_KEY
@@ -42,6 +41,9 @@ class ProductsActivity : BaseActivity<ActivityProductsBinding>() {
         }
         binding.sortContent.setOnClickListener {
             showPopoMenu()
+        }
+        binding.contentToolbar.notification.setOnClickListener {
+            openNotification()
         }
         binding.etSearch.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {

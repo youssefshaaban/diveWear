@@ -10,4 +10,7 @@ val repositeryModule= module {
     factory { FavouriteRepositery(get()) }
     factory { AccountRepositery(get()) }
     factory { GeneralRepositery(get()) }
+    factory { CarRepositery(get()) }
+    factory { RequestRepositery(get()) }
+    factory { NotifcationRepositery(get()) }
 }

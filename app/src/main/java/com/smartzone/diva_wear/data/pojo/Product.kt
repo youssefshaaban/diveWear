@@ -1,5 +1,7 @@
 package com.smartzone.diva_wear.data.pojo
 
+import java.io.Serializable
+
 data class Product(
     val category_id: String,
     val created: String?=null,
@@ -15,9 +17,9 @@ data class Product(
     val price: String,
     val sale: String,
     val status: String,
-    var quantity:Int=0,
+    var quantity:Int=1,
     var isAddCart:Boolean=false
-){
+):Serializable{
     override fun equals(other: Any?): Boolean {
         if (other is Product && other.id == this.id) return true
         return false

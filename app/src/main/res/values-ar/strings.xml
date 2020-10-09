@@ -44,4 +44,46 @@
     <string name="doneAddCart">"تم اضافى الى السلة بنجاح "</string>
     <string name="isAlerdyExsist">"المنتج موجود بالفعل "</string>
     <string name="map_key">AIzaSyCE29pCYj3ntftgARbTP0FA8xZyLBCF7f8</string>
+    <string name="title_total_amount">المبلغ الإجمالى</string>
+    <string name="tittle_location_delivery">"موقع التسليم "</string>
+    <string name="title_location">مكان الشحن</string>
+    <string name="tittle_method_payment">طريقة الدفع</string>
+    <string name="title_delivery_paid">الدفع عند الاستلام</string>
+    <string name="tittle_select_location">اختار موقعك</string>
+    <string name="title_detail_delivery">"تفاصيل التسليم "</string>
+    <string name="reviewOrder">مراجعة الطلب</string>
+    <string name="delivery">الشحن</string>
+    <string name="allPrice">السعر الكلى</string>
+    <string name="tittle_quantity"> الكمية : </string>
+    <string name="mustDelviry">"لابد من اختيار مكان الشحن "</string>
+    <string name="mustSelectCity">Must select city</string>
+    <string name="tittle_done_send">تم إرسال طلبك بنجاح</string>
+    <string name="tittle_go_to_home">"الرجوع الى الرئيسية "</string>
+    <string name="tittle_order_num">رقم الطلب</string>
+    <string name="tittle_more">عرض المزيد</string>
+    <string name="numberOfProduct">عدد المنتجات : </string>
+    <string name="thereIsNoProduct">لا يوجد منتجات فى السله ليتم عمليية الشراء</string>
+    <string name="title_follow_order">تتبع الطلب</string>
+    <string name="orderDetail">"تفاصيل الطلب "</string>
+    <string name="orderDate">تاريخ الطلب</string>
+    <string name="tittle_line">فى الطريق</string>
+    <string name="tittleSend">تم الإرسال</string>
+    <string name="tittle_road">فى الطريق</string>
+    <string name="tittle_done_delivery">تم التسليم</string>
+    <string name="notification">الإشعارات</string>
+    <string name="title_profile" >حسابى</string>
+    <string name="title_contactUs">اتصل بنا</string>
+    <string name="title_logout">تسجيل خروج</string>
+    <string name="title_name">الإسم</string>
+    <string name="tittle_save_change">حفظ التعديلات</string>
+    <string name="title_message">الرسالة</string>
+    <string name="title_enter_message">الرجاء كتابة رسالتك</string>
+    <string name="send">"إرسال "</string>
+    <string name="tittleSotial">أو عبر التواصل الجتماعى</string>
+    <string name="yourRequest">تم ارسال طلبك بنجاح</string>
+    <string name="currency">ج.م</string>
+    <array name="tittles_requests">
+        <item>الطلبات الحالية</item>
+        <item>الطلبات السابقة</item>
+    </array>
 </resources>

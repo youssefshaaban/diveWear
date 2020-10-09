@@ -50,12 +50,7 @@ val retrofitClient = module {
                         "headerHelper",
                         request.headers().toString()
                     )
-                    val response = chain.proceed(request)
-                    val bodyString: String? = response.body()?.string()
-                    LogUtil.error(bodyToString(request.body()), bodyString)
-                    return response.newBuilder()
-                        .body(ResponseBody.create(response.body()?.contentType(), bodyString))
-                        .build()
+                    return chain.proceed(request)
                 } catch (e: Exception) {
                     e.printStackTrace()
                     return chain.proceed(request)

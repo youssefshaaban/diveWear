@@ -8,7 +8,7 @@ data class User(
     val created: String,
     val device: String,
     val id: String,
-    val image: String,
+    val image: String?=null,
     val mobile: String,
     val name: String,
     val password: String,

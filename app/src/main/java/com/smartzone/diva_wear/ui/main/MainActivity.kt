@@ -52,6 +52,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         return null
     }
 
+
     companion object{
         fun getIntent(context: Context):Intent=Intent(context,MainActivity::class.java)
     }

@@ -8,7 +8,8 @@
     <color name="yellowWarning">#ffb74d</color>
     <color name="successColor">#4caf50</color>
     <color name="white">#FBFBFB</color>
-    <color name="white_grey">#FAF8F8</color>
+    <color name="white_grey">#EDEDED</color>
+    <color name="white_grey2">#D8D7D7</color>
     <color name="dark_grey">#777777</color>
     <color name="grey">#C6C6C6</color>
     <color name="black">#000000</color>

@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         android:layout_margin="@dimen/_5sdp"
         app:riv_corner_radius="@dimen/_10sdp"
-        android:scaleType="fitXY"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

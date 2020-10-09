@@ -24,6 +24,18 @@ class AccountRepositery(private val apiHelper: APIHelper){
         return apiHelper.signUp(mobile,password,token,name,city_id)
     }
 
+
+    fun editProfile(
+        mobile: String,
+        name:String,
+        city_id:String?,
+        id:String,
+        image:String?=null
+    ):Single<ResponseUser>{
+        return apiHelper.edit(mobile,name,city_id,id,image)
+    }
+
+
     fun forgetPassword(
         mobile: String
     ):Single<BaseObjectResponse>{

@@ -20,6 +20,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.smartzone.diva_wear.R
 import com.smartzone.diva_wear.data.ErrorMessageType
 import com.smartzone.diva_wear.ui.dailogs.LoadingDialog
+import com.smartzone.diva_wear.ui.notification.NotificationActivity
 import com.smartzone.diva_wear.utilis.AppUtils
 import java.util.*
 
@@ -236,6 +237,10 @@ abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         getViewModel()?.onClear()
+    }
+
+    fun openNotification(){
+        startActivity(NotificationActivity.getIntent(this))
     }
 
 

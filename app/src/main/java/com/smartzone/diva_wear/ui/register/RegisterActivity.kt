@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.smartzone.diva_wear.MyApp
 import com.smartzone.diva_wear.R
@@ -12,6 +13,7 @@ import com.smartzone.diva_wear.data.pojo.User
 import com.smartzone.diva_wear.databinding.ActivityRegisterBinding
 import com.smartzone.diva_wear.ui.base.BaseActivity
 import com.smartzone.diva_wear.ui.base.BaseViewModel
+import com.smartzone.diva_wear.ui.dailogs.CityDialog
 import com.smartzone.diva_wear.ui.login.LoginActivity
 import com.smartzone.diva_wear.ui.main.MainActivity
 import com.smartzone.diva_wear.utilis.SavePrefs
@@ -21,17 +23,28 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
     val viewModel: RegisterViewModel by viewModel()
     lateinit var binding: ActivityRegisterBinding
+    var selectCity:City?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = getViewDataBinding()
         viewModel.getCity()
-        observeCity()
+        binding.etCity.setOnClickListener {
+            binding.etCity.setOnClickListener {
+                viewModel.cities.value?.let {
+                    CityDialog(this).show(it,false){
+                        selectCity=it
+                        binding.etCity.setText(selectCity?.name)
+                    }
+                }?:run{
+                    viewModel.getCity()
+                }
+            }
+        }
         binding.btnSignUp.setOnClickListener {
             if (validateInput()) {
-                val city = binding.etCity.selectedItem as City
                 viewModel.login(
                     binding.etPhone.text.toString(), binding.etPassword.text.toString()
-                    , null, binding.etName.text.toString(), city.id
+                    , null, binding.etName.text.toString(), selectCity?.id
                 )
             }
         }
@@ -54,15 +67,13 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
             binding.etPassword.error = getString(R.string.field_required)
             return false
         }
+        if (selectCity==null){
+            Toast.makeText(this,getString(R.string.mustSelectCity),Toast.LENGTH_LONG).show()
+            return false
+        }
         return true
     }
 
-    fun observeCity() {
-        viewModel.cities.observe(this, Observer {
-            val adapter: CityAdapter = CityAdapter(this, android.R.layout.simple_spinner_item, it)
-            binding.etCity.adapter = adapter
-        })
-    }
 
     fun observerUser() {
         viewModel.user.observe(this, Observer {
