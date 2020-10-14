@@ -28,6 +28,8 @@ class CartManger() {
             val pro = orderBean.listProduct[index]
             return if (!pro.isAddCart) {
                 pro.isAddCart = true
+                pro.size_id=product.size_id
+                pro.color_id=product.color_id
                 true
             } else
                 false
@@ -49,11 +51,11 @@ class CartManger() {
         if (orderBean.listProduct.contains(product)) {
             val pro = orderBean.listProduct[index]
             if (pro.quantity - 1 == 0) {
-                if (!pro.isAddCart){
+                if (!pro.isAddCart) {
                     count = 1
                     orderBean.listProduct.removeAt(index)
-                }else{
-                    count=1
+                } else {
+                    count = 1
                 }
             } else {
                 count = pro.quantity - 1
@@ -65,7 +67,7 @@ class CartManger() {
 
     fun clearOrder() {
         orderBean.listProduct.clear()
-        orderBean.delviry=null
+        orderBean.delviry = null
         save()
     }
 
@@ -76,8 +78,14 @@ class CartManger() {
     fun calculatePrice(): Float {
         var total: Float = 0.0f;
         orderBean.listProduct.forEach {
-            if (it.isAddCart)
-                total += (it.quantity * it.price.toFloat())
+            if (it.isAddCart) {
+                total += if (it.sale == "0") {
+                    (it.quantity * it.price.toFloat())
+                } else {
+                    (it.quantity * it.sale.toFloat())
+                }
+            }
+
         }
         return total
     }
@@ -101,7 +109,17 @@ class CartManger() {
         }
         return count
     }
-    fun IsEmpty():Boolean{
+
+    fun IsEmpty(): Boolean {
         return getCartList().isEmpty()
+    }
+
+    fun getProductFromCart(id: String): Product? {
+        val list = getCartList()
+        for (item in list) {
+            if (item.id == id)
+                return item
+        }
+        return null
     }
 }

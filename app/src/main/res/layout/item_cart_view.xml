@@ -51,8 +51,8 @@
                     app:layout_constraintStart_toEndOf="@id/imageProduct"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/tv_price"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
@@ -61,7 +61,21 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/txt13"
                     app:layout_constraintStart_toEndOf="@id/imageProduct"
-                    app:layout_constraintTop_toBottomOf="@id/tv_name" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_name" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:id="@+id/price"
+
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:id="@+id/priceSalled"
+                        />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"

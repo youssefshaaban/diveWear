@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-//apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -83,13 +83,19 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
     implementation "com.squareup.okhttp3:okhttp:3.8.1"
     implementation "com.jakewharton.timber:timber:$timberVersion"
-
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation platform('com.google.firebase:firebase-bom:25.12.0')
 
     //gson
     implementation "com.google.code.gson:gson:$gsonVersion"
     implementation 'com.nabinbhandari.android:permissions:3.8'
     implementation 'com.github.esafirm.android-image-picker:imagepicker:2.3.1'
-
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.chaos.view:pinview:1.4.2'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
     //Structure
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.intuit.sdp:sdp-android:1.0.4'

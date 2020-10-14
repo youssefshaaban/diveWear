@@ -1,8 +1,10 @@
 package com.smartzone.diva_wear.ui.products
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.smartzone.diva_wear.MyApp
@@ -64,6 +66,16 @@ class ProductsAdapter(
                 view.like.setImageResource(R.drawable.likeeee)
             view.root.setOnClickListener {
                 click(product)
+            }
+            if(product.sale != "0"){
+                view.priceSalled.text=product.sale
+                view.priceSalled.visibility=View.VISIBLE
+                view.price.text=product.price
+                view.price.background=ContextCompat.getDrawable(view.root.context,R.drawable.line_drawaable)
+            }else{
+                view.price.text=product.price
+                view.priceSalled.visibility=View.GONE
+                view.price.background=null
             }
             view.cart.setOnClickListener {
                 if (cartManager.addProductCart(product)){

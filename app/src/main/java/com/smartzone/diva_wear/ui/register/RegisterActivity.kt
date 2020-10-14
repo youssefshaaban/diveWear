@@ -3,7 +3,6 @@ package com.smartzone.diva_wear.ui.register
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.smartzone.diva_wear.MyApp
@@ -14,10 +13,10 @@ import com.smartzone.diva_wear.databinding.ActivityRegisterBinding
 import com.smartzone.diva_wear.ui.base.BaseActivity
 import com.smartzone.diva_wear.ui.base.BaseViewModel
 import com.smartzone.diva_wear.ui.dailogs.CityDialog
-import com.smartzone.diva_wear.ui.login.LoginActivity
 import com.smartzone.diva_wear.ui.main.MainActivity
 import com.smartzone.diva_wear.utilis.SavePrefs
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.regex.Pattern
 
 
 class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
@@ -42,16 +41,16 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
         }
         binding.btnSignUp.setOnClickListener {
             if (validateInput()) {
-                viewModel.login(
-                    binding.etPhone.text.toString(), binding.etPassword.text.toString()
-                    , null, binding.etName.text.toString(), selectCity?.id
-                )
+                val registerData=User(binding.etName.text.toString(),binding.etPassword.text.toString(),"+2${binding.etPhone.text}",selectCity?.id)
+                startActivity(VerficationActivity.getIntent(this).apply {
+                    putExtra("data",registerData)
+                })
             }
         }
         binding.tittlePress.setOnClickListener {
             finish()
         }
-        observerUser()
+        //observerUser()
     }
 
     private fun validateInput(): Boolean {
@@ -61,6 +60,10 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
         }
         if (binding.etPhone.text.isBlank()) {
             binding.etPhone.error = getString(R.string.field_required)
+            return false
+        }
+        if (binding.etPhone.text.isNotBlank()&&!isValidPhoneNumber(binding.etPhone.text.toString())){
+            binding.etPhone.error = getString(R.string.enter_valid_phone)
             return false
         }
         if (binding.etPassword.text.isBlank()) {
@@ -75,17 +78,13 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
     }
 
 
-    fun observerUser() {
-        viewModel.user.observe(this, Observer {
-            SavePrefs(this, User::class.java).save(it)
-            MyApp.getApp().appPreferencesHelper.setLogin(true)
-            startActivity(
-                MainActivity.getIntent(this)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-            )
-            finishAffinity()
-        })
+    fun isValidPhoneNumber(
+        phoneNumber: String
+    ): Boolean {
+        val regexEg = "^(010|011|012|015)[0-9]{8}$"
+        return Pattern.matches(regexEg, phoneNumber)
     }
+
 
     companion object {
         fun getIntent(context: Context): Intent = Intent(context, RegisterActivity::class.java)

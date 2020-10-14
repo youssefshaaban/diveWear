@@ -23,11 +23,11 @@ class RegisterViewModel(
 
     val user=MutableLiveData<User>()
     val cities=MutableLiveData<List<City>>()
-    fun login(  mobile: String,
-                password:String,
-                token:String?,
-                name:String,
-                city_id:String?
+    fun signUP(mobile: String,
+               password:String,
+               token:String?,
+               name:String,
+               city_id:String?
     ){
         setLoading(true)
         add {

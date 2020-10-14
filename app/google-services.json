@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "481340305520",
+    "firebase_url": "https://diva-wear-c807e.firebaseio.com",
+    "project_id": "diva-wear-c807e",
+    "storage_bucket": "diva-wear-c807e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481340305520:android:9c873953da6cdb60ab84b5",
+        "android_client_info": {
+          "package_name": "com.smartzone.diva_wear"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "481340305520-sohm1ftfs7g0ckchalvaonhmrmk944kc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smartzone.diva_wear",
+            "certificate_hash": "5347dc04c536067684df2ff0609e434e0df13519"
+          }
+        },
+        {
+          "client_id": "481340305520-jmpdokqahpmin52n0c1fi4gpmbj4ckab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcQbX-6vAPUkgI-WgZrlX8bu96jKHxC0Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "481340305520-jmpdokqahpmin52n0c1fi4gpmbj4ckab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

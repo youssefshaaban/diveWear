@@ -5,7 +5,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import androidx.lifecycle.Observer
+import com.google.firebase.iid.FirebaseInstanceId
 import com.smartzone.diva_wear.MyApp
 import com.smartzone.diva_wear.R
 import com.smartzone.diva_wear.data.pojo.User
@@ -28,6 +30,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
             viewModel.login(binding.etPhone.text.toString(),binding.etPassword.text.toString())
         }
         observerUser()
+
 
         binding.tittlePress.setOnClickListener {
             startActivity(RegisterActivity.getIntent(this))

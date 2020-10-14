@@ -1,7 +1,9 @@
 package com.smartzone.diva_wear.ui.main.cart
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.smartzone.diva_wear.R
@@ -46,7 +48,16 @@ class CartAdapter(
         fun bind(pos: Int) {
             val product = cart[pos]
             view.tvName.text=product.name_ar
-            view.tvPrice.text=product.price
+            if(product.sale != "0"){
+                view.priceSalled.text=product.sale
+                view.priceSalled.visibility= View.VISIBLE
+                view.price.text=product.price
+                view.price.background= ContextCompat.getDrawable(view.root.context,R.drawable.line_drawaable)
+            }else{
+                view.price.text=product.price
+                view.priceSalled.visibility= View.GONE
+                view.price.background=null
+            }
             view.count.text="${product.quantity}"
             AppUtils.loadGlideImage(view.root.context,product.image,R.drawable.default_image,view.imageProduct)
             view.plus.setOnClickListener {

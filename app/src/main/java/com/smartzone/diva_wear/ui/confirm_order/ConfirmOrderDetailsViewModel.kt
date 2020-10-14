@@ -28,9 +28,11 @@ class ConfirmOrderDetailsViewModel(
         val map=HashMap<String,String>()
         val list=cart.getCartList()
         for ((index,value) in list.withIndex()){
-            map.set("product_id[$index]","${value.id}")
+            map["product_id[$index]"] = "${value.id}"
             Log.e("TagValue","")
-            map.set("quantity[$index]","${value.quantity}")
+            map["quantity[$index]"] = "${value.quantity}"
+            map["size_id[$index]"] = "${value.size_id}"
+            map["color_id[$index]"] = "${value.color_id}"
         }
         setLoading(true)
         val user=SavePrefs(MyApp.getApp(),User::class.java).load()

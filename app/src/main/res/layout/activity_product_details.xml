@@ -149,19 +149,126 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/nameOfProduct"
                     android:textSize="@dimen/txt15"
+                    
                     android:fontFamily="@font/neo_sans_medium"
                     />
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:padding="@dimen/_5sdp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/price"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:textSize="@dimen/txt15"
-                    android:fontFamily="@font/neo_sans_medium"
-                    />
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:id="@+id/price"
+
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:id="@+id/priceSalled"
+                        />
+                </LinearLayout>
             </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:paddingTop="@dimen/_5sdp"
+                android:textSize="@dimen/txt16"
+                android:textColor="@color/colorPrimary"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:padding="@dimen/_10sdp"
+                android:fontFamily="@font/neo_sans_medium"
+                android:text="@string/title_specific_size"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/back_drawable_color_primary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/_5sdp"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/tittle_city"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/et_size"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/neo_sans_medium"
+                    android:textSize="@dimen/txt14"
+                    android:singleLine="true"
+                    android:focusable="false"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:padding="@dimen/_10sdp"
+                    android:hint="@string/title_enter_size"
+
+                    tools:ignore="TextFields" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@drawable/arrowdown"
+                    android:gravity="center"
+                    android:layout_height="20dp"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:paddingTop="@dimen/_5sdp"
+                android:textSize="@dimen/txt16"
+                android:textColor="@color/colorPrimary"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:padding="@dimen/_10sdp"
+                android:fontFamily="@font/neo_sans_medium"
+                android:text="@string/title_specific_color"
+                android:layout_height="wrap_content"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/back_drawable_color_primary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/_5sdp"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/tittle_city"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/et_color"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/neo_sans_medium"
+                    android:textSize="@dimen/txt14"
+                    android:singleLine="true"
+                    android:focusable="false"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:padding="@dimen/_10sdp"
+                    android:hint="@string/title_enter_color"
+
+                    tools:ignore="TextFields" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@drawable/arrowdown"
+                    android:gravity="center"
+                    android:layout_height="20dp"/>
+
+            </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:paddingTop="@dimen/_5sdp"

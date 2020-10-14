@@ -82,6 +82,16 @@
     <string name="tittleSotial">أو عبر التواصل الجتماعى</string>
     <string name="yourRequest">تم ارسال طلبك بنجاح</string>
     <string name="currency">ج.م</string>
+    <string name="title_specific_size">إختر المقاس </string>
+    <string name="title_specific_color">"إختر اللون "</string>
+    <string name="title_enter_size">الرجاء اختيار المقاس المناسب</string>
+    <string name="title_enter_color">برجاء اختيار اللون المناسب</string>
+    <string name="mustSelectSize">لابد من إختيار حجم مناسب ليك</string>
+    <string name="mustSelectColor">لابد من إختيار لون مناسب</string>
+    <string name="default_notification_channel_id">channel</string>
+    <string name="title_enter_vervication">تفعيل الحساب</string>
+    <string name="phone_verify">كود التفعيل</string>
+    <string name="enter_valid_phone">برجاء ادخال رقم التليفون صحيح ويبدا ب   0</string>
     <array name="tittles_requests">
         <item>الطلبات الحالية</item>
         <item>الطلبات السابقة</item>
